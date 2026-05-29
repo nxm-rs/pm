@@ -1,78 +1,63 @@
-# nxm-rs Project Management
+<p align="center">
+  <img src=".github/banner.svg" alt="Nexum · pm — roadmap, ADRs, and open planning" width="100%" />
+</p>
 
-Where we pretend to plan things before diving into code. Sometimes it even works.
+Cross-repo planning for [nxm-rs](https://github.com/nxm-rs). Architecture Decision Records and quarterly roadmaps.
 
-## How we work
+We plan in the open. There's no private Notion, no private Linear. If a decision matters across repos, it lands here so future readers — and future us — can see *why* the code looks the way it does.
 
-1. **Issues first** - Problems get discussed before solutions get coded
-2. **Epics for big stuff** - When something needs multiple PRs, make an epic
-3. **Milestones for deadlines** - When we actually have deadlines (rare)
-4. **ADRs for decisions** - When we make choices that'll confuse future us
-
-## What's here
-
-### `/adr`
-Architecture Decision Records. For when we make non-obvious technical choices that future developers will wonder about.
-
-### `/roadmap`
-High-level direction. What we're building and roughly when. Emphasis on "roughly".
-
-### `/templates`
-Issue and PR templates specific to the PM repo. For tracking epics and milestones.
-
-## How to use this repo
-
-### Creating an Epic
-
-Use the epic template. An epic should:
-- Solve a real problem
-- Be too big for one PR
-- Have clear success criteria
-- Link to related issues
-
-### Tracking Progress
-
-- Use GitHub Projects for visual tracking (if you're into that)
-- Use issue labels consistently (see `.github` repo for label definitions)
-- Update epic descriptions as scope changes (it always does)
-
-### Roadmap Planning
-
-- Quarterly planning in `/roadmap/YYYY-QX.md`
-- Focus on outcomes, not features
-- Be realistic about velocity
-- Leave room for fixing things that break
-
-## Working Principles
-
-1. **Ship working code** - Better to ship something that works than plan something perfect
-2. **Fix it in post** - Launch, learn, iterate
-3. **Communicate changes** - If scope/timeline changes, say so early
-4. **No process theater** - If a process doesn't help ship better code, kill it
-
-## Repository Links
-
-### Main Products
-- [nexum](https://github.com/nxm-rs/nexum) - Ethereum wallet for people who read docs
-- [vertex](https://github.com/nxm-rs/vertex) - Swarm node that actually works
-
-### Infrastructure
-- [.github](https://github.com/nxm-rs/.github) - Org-wide templates and community files
-- [pm](https://github.com/nxm-rs/pm) - This repo
-
-## Label System
-
-We use pragmatic labels across all repos:
-
-- **Priority**: `p0-fire`, `p1-broken`, `p2-annoying`, `p3-maybe`
-- **Status**: `blocked`, `investigating`, `pr-welcome`
-- **Type**: `bug`, `feature`, `dx`, `perf`, `debt`, `docs`
-- **Effort**: `effort/minutes`, `effort/hours`, `effort/days`, `effort/weeks`
-
-## Contributing
-
-See [CONTRIBUTING.md](https://github.com/nxm-rs/.github/blob/main/CONTRIBUTING.md) for how to contribute without wasting everyone's time.
+> Looking for the org overview? See **[github.com/nxm-rs](https://github.com/nxm-rs)**.
 
 ---
 
-**Remember**: Plans are worthless, but planning is everything. Write code, ship features, fix bugs. Everything else is negotiable.
+## What's here
+
+```
+pm/
+├── adr/         ← Architecture Decision Records · the why behind non-obvious choices
+└── roadmap/    ← Quarterly plans (YYYY-QX.md format) + TEMPLATE.md
+```
+
+### `adr/` — Architecture Decision Records
+
+For decisions that have lasting impact on how the codebase is shaped, and that would be opaque to a future reader without context.
+
+- **Status** — Proposed / Accepted / Deprecated / Superseded
+- **Context** — Why we needed to decide
+- **Decision** — What we decided
+- **Consequences** — What that means going forward
+
+Write an ADR when the trade-off is non-obvious or the alternative was tempting. Don't write an ADR for style preferences (linters), temporary workarounds (TODO comments), or obvious choices.
+
+### `roadmap/` — Quarterly plans
+
+One file per quarter. Theme, ≤3 goals (outcome-focused), key deliverables organised by product, success metrics, and an explicit "what we're NOT doing" section. Plans change when reality hits — we revise in the open rather than pretending we knew all along.
+
+---
+
+## Working principles
+
+- **Ship working code.** A working implementation beats perfect planning.
+- **Plan in quarters.** Longer horizons are unreliable; shorter ones miss strategic shifts.
+- **Outcomes, not features.** "Users can sign with a Keycard on Android" — not "ship Keycard pairing UI".
+- **Decisions in public.** If it's load-bearing across repos, the *why* lives here.
+- **No process theater.** Kill processes that don't help ship better code.
+
+---
+
+## Issue conventions
+
+The label system is shared across all nxm-rs repos (see [.github](https://github.com/nxm-rs/.github)):
+
+- **Priority** — `p0-fire`, `p1-broken`, `p2-annoying`, `p3-maybe`
+- **Status** — `blocked`, `investigating`, `pr-welcome`
+- **Type** — `bug`, `feature`, `dx`, `perf`, `debt`, `docs`
+- **Effort** — `effort/minutes`, `effort/hours`, `effort/days`, `effort/weeks`
+
+This repo's templates cover **Epics** (work too big for one PR — problem statement, success criteria, sub-tasks, non-goals) and **Milestones** (quarterly/release-based; 3–5 key deliverables, linked epics, risks).
+
+---
+
+## License
+
+The roadmaps, ADRs, and templates are licensed under [AGPL-3.0-or-later](./LICENSE) consistent with the rest of the org. Forks of the planning process are welcome.
